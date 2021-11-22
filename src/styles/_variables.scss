@@ -1,0 +1,82 @@
+@import "mixins";
+
+$primary-font: Verdana, Helvetica, sans-serif;
+$secondary-font: $primary-font;
+
+$font-size: 10px;
+$line-height: 1.5em;
+$gap: 1rem;
+$px: 2px;
+
+$default-margin: $font-size; // if ie8 support is not mandatory, use 1rem instead
+
+$button-padding: $default-margin * .33;
+$icon-margin: $default-margin * .66;
+$padding-top-multiplier: .9;
+
+$images: '/assets/enummer/images/';
+$fonts: '/assets/enummer/fonts/';
+$iconset: 'icomoon-free';
+
+$smaller-size: $font-size * .8;
+$larger-size: $font-size * 1.25;
+
+$text-color: #444;
+$text2-color: #fff;
+$primary-color: saturate(#73400e, 10%);
+$secondary-color: saturate(#7e6246, 10%);
+$accent-color: #f88;
+$warning-color: #f88;
+$warning-text-color: #fff;
+$bg-color: #fff;
+$panel-bg-color: #fff;
+$seniobox-color: #009FE3;
+$color-marburg: #C41A49;
+$menupanel-bg: #ddd;
+$shadow-color: #000;
+$bits-bg: #ddd;
+
+$color-selected: #DDEEFF;
+
+$color-green: #bdffb6;
+$color-red: red;
+$color-white: white;
+
+$border-radius: 8px;
+
+$panel-bg: #fff;
+
+$shade-color: rgba(0, 0, 0, .2);
+
+$link-color: #444;
+
+$default-shadow: 0 $px 0 $shade-color;
+$high-shadow: 0 (2*$px) 0 $shade-color;
+$text-shadow: 1px 1px 0 rgba(0, 0, 0, .5);
+$frame-shadow:
+  (-$px) 0 0 $primary-color,
+  $px 0 0 $primary-color,
+  0 (-$px) 0 $primary-color,
+  0 $px 0 $primary-color;
+
+$z-event: 5;
+$z-menupanel: 1;
+$z-lightbox: 11;
+$z-dialog: 10;
+$z-tooltip: 15;
+
+$page-width: 100%;
+$page-min-width: 320px;
+$page-max-width: $page-width;
+
+/**
+ Animation
+ */
+$default-easing: cubic-bezier(.5,.2,.5,1);
+
+$fx-animation-time: .3s;
+$fx-animation-ease: $default-easing;
+$fx-opacity: .4;
+$fx-strength: 1.0;
+
+$tiny-screen: 480px;

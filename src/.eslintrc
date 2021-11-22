@@ -1,0 +1,103 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions":{
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "allowImportExportEverywhere": true,
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true,
+      "esModuleInterop": true
+    }
+  },
+  "root": true,
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      // Regex for Component Factory to use,
+      // default to "createReactClass"
+      "pragma": "React",
+      // Pragma to use, default to "React"
+      "fragment": "Fragment",
+      // Fragment to use (may be a property of <pragma>), default to "Fragment"
+      "version": "detect"
+    },
+    "import/extensions": [
+      ".js",
+      ".jsx"
+    ]
+  },
+  "plugins": [
+    "import",
+    "eslint-plugin-react-hooks",
+    "react"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb-base",
+    "plugin:react/jsx-runtime",
+    "plugin:import/recommended"
+  ],
+  "globals": {
+    "__DEV__": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "indent": ["warn", 4, {"SwitchCase": 1}],
+    "arrow-parens": "off",
+    "quotes": ["error", "single"],
+    "space-before-function-paren": "off",
+    "comma-dangle": ["off", {
+      /*
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+      */
+    }],
+    "max-len": [1, 200],
+    "no-multi-assign": "off",
+    "react/jsx-indent": ["warn", 4],
+    "react/jsx-indent-props": ["warn", 4],
+    "react/jsx-filename-extension": "off",
+    "react/sort-comp": ["off", {
+      // "off" since "instance-properties" are not yet supported :(
+      "order": [
+        "static-methods",
+        "instance-properties",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ]
+    }],
+    "react/prop-types": "warn",
+    "react/forbid-prop-types": "off",
+    "react/no-unused-prop-types": "off",
+    "react/prefer-stateless-function": "off",
+    "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
+    "linebreak-style": "off",
+    "no-unused-vars": "off",
+    "no-trailing-spaces": "off",
+    "no-console": "off",
+    "function-paren-newline": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "react/static-property-placement": "off",
+    "prefer-object-spread": "warn",
+    "object-curly-newline": "off",
+    "no-alert": "off",
+    "import/extensions": "off",
+    "import/no-useless-path-segments": "off",
+    "import/no-cycle": "warn",
+    "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+    "import/no-import-module-exports": "warn"
+  }
+}

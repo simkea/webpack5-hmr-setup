@@ -1,0 +1,174 @@
+//noinspection CssUnknownTarget
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin width-range($min: $page-min-width, $max: $page-max-width)
+{
+  min-width: $min;
+  max-width: $max;
+}
+
+@mixin font-face($font-name)
+{
+  @font-face
+  {
+    font-family: $font-name;
+    src: local('☺');
+    src: url('#{$fonts}#{$font-name}.woff2') format('woff2'),
+    url('#{$fonts}#{$font-name}.ttf') format('truetype'),
+    url('#{$fonts}#{$font-name}.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+  }
+}
+
+@mixin box-sizing($sizing: border-box)
+{
+  box-sizing: $sizing;
+  -moz-box-sizing: $sizing;
+}
+
+@mixin border-radius($radius: 8px)
+{
+  border-radius: $radius;
+}
+
+@mixin opacity($opacity: 0.5)
+{
+  opacity: $opacity;
+  $perc: $opacity * 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=#{$perc})";
+  filter: "alpha(opacity=#{$perc})";
+}
+
+@mixin box-shadow($x: 0, $y: 0, $blur: 8px, $spread: 0, $color: #000)
+{
+  box-shadow: $x $y $blur $spread;
+}
+
+@mixin text-shadow($x: 1px, $y: 1px, $blur: 0, $color: #000)
+{
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin transition($property: all, $duration: .3s, $ease: $default-easing, $delay: 0s)
+{
+  transition: $property $duration $ease $delay;
+  -webkit-transition: $property $duration $ease $delay;
+}
+@mixin transitions($args...)
+{ // for multiple properties, use: .transitions(~'prop duration [...][, [...]]')
+  transition: $args;
+  -webkit-transition: $args;
+}
+@mixin transform($transform)
+{
+  transform: $transform;
+  -webkit-transform: $transform;
+  -ms-transform: $transform;
+}
+
+@mixin corner-init()
+{
+  position: absolute;
+  content: "";
+}
+
+@mixin corner($type, $size: $default-margin, $color: $secondary-color)
+{
+  @include corner-init();
+  @if $type == "top-left" {
+
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+
+  } @else if $type == "top-right" {
+
+    border-left: $size solid transparent;
+    border-top: $size solid $color;
+
+  } @else if $type == "bottom-left" {
+
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+
+  } @else if $type == "bottom-right" {
+    border-left: $size solid transparent;
+    border-bottom: $size solid $color;
+
+  }
+}
+
+@mixin prepareicon(){
+  display: inline-block;
+  font-family: $iconset;
+  font-size: 1.0em;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1.1em;
+  speak: none;
+  vertical-align: text-bottom;
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+}
+//noinspection
+@mixin keyframes( $animationName ) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}

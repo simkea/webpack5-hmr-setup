@@ -1,0 +1,9 @@
+@import "variables";
+@include font-face($iconset);
+
+// @import "~muicss/lib/sass/mui.scss";
+@import "~antd/dist/antd.css";
+
+ :global {
+   @import "base";
+ }

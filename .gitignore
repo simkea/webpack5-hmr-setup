@@ -1,0 +1,11 @@
+node_modules/
+.idea/
+/app/
+/build/
+/cache/
+/dist/*
+src/assets/images/
+/android/
+/www/
+/platforms/
+/plugins/
