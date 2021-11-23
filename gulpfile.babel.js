@@ -1,4 +1,3 @@
-import opn from 'opn';
 import path from 'path';
 import del from 'del';
 import gulp from 'gulp';
@@ -12,8 +11,6 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import { webpackConfig, options, URL } from './webpack.config.js';
 
 const $ = gulpLoadPlugins({ camelize: true });
-
-const open = () => opn(URL);
 
 const buildClean1 = () => del([options.BUILD_DIR]);
 
@@ -65,6 +62,7 @@ const start = async () => {
         hot: true,
         client: false,
         historyApiFallback: true,
+        open: true,
     }, compiler).startCallback((err) => {
         if (err) { // noinspection JSUnresolvedVariable
             throw new $.util.PluginError('webpack-dev-server', err);
@@ -76,8 +74,6 @@ const start = async () => {
 };
 
 const build = async () => {
-    const { host, port: preferredPort } = options;
-
     const compiler = webpack(webpackConfig(false));
     compiler.run((err, stats) => {
         const statsPool = {
@@ -104,6 +100,6 @@ const build = async () => {
 };
 
 // Primary tasks
-gulp.task('dev', gulp.series(assetsSyncCopy, gulp.parallel(start), open));
+gulp.task('dev', gulp.series(assetsSyncCopy, gulp.parallel(start)));
 
 gulp.task('build', gulp.series(buildClean1, assetsSyncCopy, buildIndex, gulp.parallel(build)));

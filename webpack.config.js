@@ -93,7 +93,7 @@ const webpackConfig = (DEV_MODE, data = {}) => ({
             publicPath: '',
             filename: '[name].bundle.js',
             sourceMapFilename: '[file].map',
-            chunkLoading: false,
+            // chunkLoading: false,
             // library: {
             //     type: 'module'
             // }

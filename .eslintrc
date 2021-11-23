@@ -3,6 +3,7 @@
   "parserOptions":{
     "ecmaFeatures": {
       "jsx": true,
+      "modules": true,
       "esModuleInterop": true
     }
   },
@@ -89,10 +90,12 @@
     "prefer-object-spread": "warn",
     "object-curly-newline": "off",
     "no-alert": "off",
+    "import/prefer-default-export": "off",
     "import/extensions": "off",
     "import/no-useless-path-segments": "off",
     "import/no-cycle": "warn",
     "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
-    "import/no-import-module-exports": "warn"
+    "import/no-import-module-exports": "warn",
+    "import/no-extraneous-dependencies": "off"
   }
 }
